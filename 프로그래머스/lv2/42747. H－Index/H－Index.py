@@ -15,7 +15,9 @@ def solution(citations):
 #  0부터 i까지 개수 = h번 이하
 #  0 1 .... i
     citations.sort()
-    print(citations)
+#     0133356이라 치면
+#     0 7 , 1 6 , 3 5, 3 4 , 3 3 , 5 2 , 6 1 이렇게 되는데
+#     3 3 일 때 리턴해주면 된다.
     for i in range(len(citations)):
         if citations[i]  >= len(citations)-i :
             return len(citations)-i
