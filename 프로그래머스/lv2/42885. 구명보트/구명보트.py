@@ -27,13 +27,12 @@ def solution(people, limit):
 
 #   people 정렬
     people.sort()
-    
-    run = True
+
     boat_count = 0
     left = 0
     right = len(people)-1
   
-    while(left < right) :
+    while(left <right) :
         if people[left] + people[right] > limit :
             right-=1
         elif people[left] +people[right] <= limit :
@@ -41,9 +40,5 @@ def solution(people, limit):
             right-=1
             boat_count+=1
             
-    print(len(people)-boat_count)
-    
-            
-    
-    answer = len(people)-boat_count*2+boat_count
+    answer = len(people)-boat_count
     return answer
