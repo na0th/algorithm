@@ -3,12 +3,10 @@ def solution(priorities, location):
 #   값을 저장해놓을 리스트를 만들어야 할 것 같다.
 
     work_list = [_ for _ in range(len(priorities))]
-    print(work_list)
     
 #   나중에 리턴될 값을 기억해놓자, 그래야 비교해서 return을 줄 수 있다.
     memo_num = work_list[location]
-    print(memo_num)
-    
+
 #  priorities를 돌면서 나보다 우선순위 높은 작업이 있으면 
 #  dequeue 후 , enqueue 맨 앞에서 빼서 맨 뒤로 보낸다
 # __ ___계속 돌아야 하는데 어떻게 돌게 할까?_____ while(run)
@@ -27,15 +25,8 @@ def solution(priorities, location):
             del priorities[0]
             del work_list[0]
             
-        
-        
-            
-
-    
 #  priorities를 돌면서 나보다 우선순위 높은 작업이 없으면 
 #  dequeue하고, 꺼낸 횟수 count+=1을 하고, memo_num과 비교한다.
 #  memo_num과 같으면 break 하고  count를 리턴해주면 도니다.
     
     
-    answer = 0
-    return answer
