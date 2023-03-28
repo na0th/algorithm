@@ -1,4 +1,4 @@
-```
+``` python
 # Singly Linked List Implementation
 class Node :
     def __init__(self, value = 0, next = None):
