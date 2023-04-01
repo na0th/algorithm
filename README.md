@@ -7,8 +7,8 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 
 리뷰 형식 
 -----------
-시도한 접근법 :
-핵심 로직 :
-막힌 부분 :
-깨달은 점 : 
+시도한 접근법,
+핵심 로직,
+막힌 부분,
+깨달은 점, 
 -----------
