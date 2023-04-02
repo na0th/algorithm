@@ -1,14 +1,19 @@
-# algorithm
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
-
 전각 공백 (　) 괄호 안에 공백을 복사해서 붙여 넣으세요
 
 
 
 STEP 1 : 문제 이해하기
-- 효율성 테스트 통과를 위한 시간복잡도를 계산해놔야 함
-- int 자료형은 약 21억까지인데 이를 초과하지는 않는지?(파이썬은 해당X)
+- 지문을 읽고 문제를 이해하는 단계이고, 기본적인 검증을 해봐야 한다.
 - 파이썬 기준으로 실행시간 1초당 실행횟수 1000만번정도로 가정하고, 이에 해당하는 자료구조, 알고리즘 선택하기
+- 효율성 테스트 통과를 위한 시간복잡도를 계산해놔야 함
+  - 예를 들면 input size가 10^5인데, 내가 설계한 알고리즘의 시간복잡도가 O(n^2)이라면 계산해볼 필요도 없이 효율성 테스트 Fail이다.
+  - input size가 10^5이라면 설계할 수 있는 시간복잡도는 O(n^2)이하로 설계해야 한다.. O(nlogn) 혹은 O(n), O(1) 등등등이 가능할 것.. 
+  - input size가 10^2이라면 O(n^3)도 가능하고, O(n^4)도 가능할 수 있다! 그렇다면 완전탐색도 고려할 수 있다는 말
+  - O(n^2)은 2차원 for loop, 버블, 선택, 삽입 정렬 
+  - O(nlogn)은 파이썬에서의 정렬 *중요* sort()  // merge sort, quick sort 등등이 있다.
+  - O(n)으로는 1차원 for loop
+  - O(logn) binary search
+- int 자료형은 약 21억까지인데 이를 초과하지는 않는지?(파이썬은 해당X)
 
 STEP 2 : 접근 방법 (가장 어려움)
 - 직관적으로 생각하기(컴퓨터없이 사람답게 문제를 푼다면 어떤 방식으로 풀어갈 것인가?)
