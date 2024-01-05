@@ -27,7 +27,7 @@ def solution(answers):
         if answers[i] == answer3[i]:
             cnt3+=1  
             
-#   5,0,0이 나오는 건 알겠는데 여기서 어떻게 return을 높은 점수 사람대로..?      
+#   5,0,0이 나yhj오는 건 알겠는데 여기서 어떻게 return을 높은 점수 사람대로..?      
     dic= {}
     dic[1]=cnt1
     dic[2]=cnt2
