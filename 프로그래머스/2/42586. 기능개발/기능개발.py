@@ -11,7 +11,6 @@ def solution(progresses, speeds):
         for j in range(i,len(progresses)):
             progresses[j] += speeds[j]
 #       내가 100을 넘겼을 때,    
-        
         if progresses[i] >= 100 :
             cnt = 0
             for k in range(i,len(progresses)):
@@ -25,7 +24,6 @@ def solution(progresses, speeds):
                 i = i+cnt  
                     
             answer.append(cnt)
-
             continue
 
     return answer
