@@ -7,12 +7,13 @@ def solution(number, k):
 
 # 1924가 K가 1이면 924 , 2이면 94, 3이면 9.. 어떤 규칙일까?
 # 1번씩 훑어서 924,94,9가 되는 게 아니고 순회하면서 한번에 다 줄여나가야
-# 시간복잡도가 O(N)이 나올 수 있다..
+# 시간복잡도가 O(N)이 나올 수 있다..?
 
 # 가면서 나보다 뒤에 숫자가 크면 나는 삭제..
 # 그렇게한후 처음부터 다시 돈다.
 #  BASE 포인트는 cnt가 K가 되면 끝!
 
+# 시간초과가 나서 억지로 줄인 느낌이 있다...
     # number_list = list(number)
     
     cnt = 0
@@ -38,9 +39,6 @@ def solution(number, k):
         i += 1
         
         
-        
-        
-         
     return number 
 
     # answer = ''.join(number_list)    
