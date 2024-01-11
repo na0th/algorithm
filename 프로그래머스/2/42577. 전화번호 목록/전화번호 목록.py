@@ -1,6 +1,6 @@
 def solution(phone_book):
-    
-#    시간복잡도 n^2은 안된다.. nlogn 애매.. n 괜찮음..
+#  1000만번까지 허용  
+#  시간복잡도 n^2은 안된다.. nlogn 애매.. n 괜찮음..
 
 #  딕셔너리에 전부 등록한 후에.. ??  = 모르겠다.....
 
@@ -10,6 +10,8 @@ def solution(phone_book):
     phone_book.sort()
     
     for i in range(len(phone_book)-1):
+        # 왼쪽 문자열 길이가 작을 때만, 오른쪽 문자를 왼쪽 문자의 길이만큼 체크해서 cnt 올리기..
+        # cnt가 왼쪽 문자열 길이면 True 리턴       
         if len(phone_book[i]) <= len(phone_book[i+1]) :
             cnt = 0
             for j in range(len(phone_book[i])):
