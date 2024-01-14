@@ -8,19 +8,17 @@ def solution(priorities, location):
     cnt = 0
     print(deque1)
     
-    while(1):
-
-        if not deque1 :
-            break
-        pop_item = deque1.popleft()
-        if pop_item[1] == max(priorities): 
-            priorities.remove(pop_item[1])
-            cnt+=1
-            if pop_item[0] == location:
-                return cnt
+#     while(1):
+#         if not deque1 :
+#             break
+#         pop_item = deque1.popleft()
+#         if pop_item[1] == max(deque1, key=lambda x: x[1])[1]: 
+#             cnt+=1
+#             if pop_item[0] == location:
+#                 return cnt
                 
-        else :
-            deque1.append(pop_item)
+#         else :
+#             deque1.append(pop_item)
         
        
 
