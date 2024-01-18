@@ -3,22 +3,7 @@ def solution(citations):
 
 #  for문을 통해서 '나'를 기준으로 나보다 크거나 같으면 cnt1에 +1 , 작거나 같으면 cnt2 +1 해서 cnt1 = cnt 2 = 나면 통과. 이건 n^2 
 
-
-    
-#     0 1 2 2 3 5 6
-#    0이면 0편 이상이 7개 , 0편 이하 1개 
-#    1이면 1편 이상이 6, 1편 이하 2개
-#    2면 2편이상이 5, 2편이하 4 
-#    3이면 3편이상이 3개, 3편이하가 5개 이 때가 h의 최대
-#    4이면 4편이상이 2개,4이하가 5개 떙 
-
-#    전에 숫자랑 같으면 continue, 다르면 for문 돌면서 나부터 끝까지 세서 나보다 크거나 같은지 check and 처음부터 나까지 나보다 작거나 같읕지 체크
-    citations.sort()
-    for i in range(len(citations)):
-        if citations[i] >= len(citations)-i :
-            if i >= citations[i] :
-                return citations[i]
-        
+    cnt1=0,cnt2=0
     
     
     
