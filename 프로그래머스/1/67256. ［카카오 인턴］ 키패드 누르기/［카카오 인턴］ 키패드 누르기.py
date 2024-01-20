@@ -20,15 +20,12 @@ def solution(numbers, hand):
     now_right='#'
     answer = []
     for number in numbers:
-        print("number")
         if number in [1,4,7] :
             answer.append("L")
-            print(1)
             now_left = str(number)
             continue
         if number in [3,6,9] :
             answer.append("R")
-            print(2)
             now_right = str(number)
             continue
         else :
@@ -44,25 +41,19 @@ def solution(numbers, hand):
         
             if left_sum_distance > right_sum_distance:
                 answer.append("R")
-                print(3)
                 now_right = number
                 continue
             if left_sum_distance < right_sum_distance:
                 answer.append("L")
-                print(4)
                 now_left = number
                 continue
             else :
                 if hand == "right":
                     answer.append("R")
-                    print(5)
                     now_right = number
                 else :
                     answer.append("L")
-                    print(6)
                     now_left = number
 
-    
-            
     answer = ''.join(answer)
     return answer
