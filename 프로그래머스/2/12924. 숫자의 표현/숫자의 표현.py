@@ -1,4 +1,4 @@
-def solution(n):
+def solution(num):
 #   연속합을 .. 어떻게..
 #   내가 홀수? 내가 짝수? // 개수가 짝수? 홀수?
 #   시그마 개념으로 접근해서 (j(j+1)-i(i+1))/2 = n 방정식 풀기
@@ -11,21 +11,16 @@ def solution(n):
 #                 cnt+=1
 
 #     return cnt
-    cnt = 0
-    i = 1
-    j = 1
-    current_sum = 0
 
-    while i <= n:
-        if current_sum == n:
-            cnt += 1
-            current_sum -= i
-            i += 1
-        elif current_sum < n:
-            current_sum += j
-            j += 1
-        else:
-            current_sum -= i
-            i += 1
+    answer = 0
+    for x in range(1,num+1):
+        sum = 0
+        for y in range(x, num+1):
+            sum += y
+            if sum == num:
+                answer += 1
+                break
+            elif sum > num:
+                break
 
-    return cnt
+    return answer
