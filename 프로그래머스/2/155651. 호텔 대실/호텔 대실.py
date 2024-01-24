@@ -3,8 +3,10 @@ def solution(book_time):
 #   종료 시각 ex)15:20 을 : 기준으로 split 해서 split[0]*60 + split[1]+10을 저장함
 #   room_list = [920,1040]
 #   book_time의 item만큼 돌면서 room_list의 element중 내 시작시간보다 작은 게 있다면 바꿔
+
+#   시작 시간으로 정렬..
     book_time = sorted(book_time,key = lambda x:x[0])
-    # print(book_time)
+    
     room_list = []
     for time in book_time :
         time_start = time[0].split(":")
@@ -23,10 +25,8 @@ def solution(book_time):
         if start_minute < min(room_list):
             room_list.append(time_to_minute + 10)
         else :
-            # print(min(room_list))
             idx = room_list.index(min(room_list))
             room_list[idx] = time_to_minute + 10
-            # room_list.index(min(room_list)) = time_to_minute + 10
-    print(room_list)
+
     answer = len(room_list)
     return answer
