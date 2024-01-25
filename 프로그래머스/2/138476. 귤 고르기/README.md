@@ -1,10 +1,10 @@
 # [level 2] 귤 고르기 - 138476 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/138476) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/138476#) 
 
 ### 성능 요약
 
-메모리: 19.4 MB, 시간: 19.52 ms
+메모리: 19.4 MB, 시간: 19.84 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 1월 4일 13:47:14
+2024년 1월 4일 13:48:6
 
 ### 문제 설명
 

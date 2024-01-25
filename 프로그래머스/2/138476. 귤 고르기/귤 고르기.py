@@ -1,12 +1,11 @@
 def solution(k, tangerine):
 #    수확 귤중 k개를 골라 판매
 #     서로다른 종류를 최소화..
-    # counter해서 앞에서 부터 출력하면 되지 않을까..?
+# counter해서 앞에서 부터 더해서 넘기면 되지 않을까..?
     
     from collections import Counter
-    
     dic = dict(Counter(tangerine))
-    # print(dic)
+    
 #   key로 정렬  
     # dic = dict(sorted(dic.items()))
     # print(dic)
@@ -27,10 +26,4 @@ def solution(k, tangerine):
             total += value
             cnt += 1
             
-        # print(total,cnt)
-
-
-      
-#             
-        # 2 2 2
     return cnt
