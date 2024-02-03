@@ -1,4 +1,7 @@
 def solution(dirs):
+#   방문 리스트를 기억해놔야 겠다.
+#   before - after로 방문했는데 순서는 상관 없으니 정렬한다.
+#   좌표 벗어나면 이동하지 않는다.
     visited_list = []
     
     before=[0,0]
@@ -30,9 +33,9 @@ def solution(dirs):
 
         
         before = after
-        print(after)
+        # print(after)
         
-    print(visited_list)
+    # print(visited_list)
 
     answer = len(visited_list)
     return answer
