@@ -22,6 +22,8 @@ def solution(weights):
                 cnt += add_list[i][1]*add_list[j][1]
             elif add_list[i][0]*2 == add_list[j][0] :
                 cnt += add_list[i][1]*add_list[j][1]
+                
+#   몸무게가 같은 놈 끼리의 짝꿍            
     for i in range(len(add_list)):
         if add_list[i][1] > 1 :
             cnt += add_list[i][1]*(add_list[i][1]-1)*(1/2)
