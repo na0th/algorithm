@@ -19,7 +19,6 @@ def solution(str1, str2):
     list2 = func(str2)
     list2 = func2(list2)
     
-    
     print("list1 = ",list1,"list2 = ",list2)
 #   교집합 , 합집합 구하기 (두 집합이 빈 집합이면 1 리턴)
     if not list1 and not list2:
@@ -28,13 +27,11 @@ def solution(str1, str2):
         dic1 = Counter(list1)
         dic2 = Counter(list2)
         
-        # inter = len(set(list1).intersection(set(list2)))
-        # uni = len(set(list1).union(set(list2)))
-        
         uni_list = set(list1).union(set(list2))
         
         inter = 0
         uni = 0
+        
         for item in uni_list :
         #둘 다 있다. 작은 애는 교집합으로, 큰 애는 합집합으로.. 추가
             if item in dic1 and item in dic2 :
@@ -64,21 +61,3 @@ def solution(str1, str2):
     # print(a)
     
     
-    
-    
-    # def del_not_alpha(str1) :
-    #     list = []
-    #     for item in str1 :
-    #         print(item)
-    #         if item.isalpha() : 
-    #             list.append(item)
-    #         else :
-    #             print(item.isalpha())
-    
-    # a = split(str1)
-    # b = del_not_alpha(a)
-    
-    # print(b)
-    # print(a)
-    answer = 0
-    return answer
