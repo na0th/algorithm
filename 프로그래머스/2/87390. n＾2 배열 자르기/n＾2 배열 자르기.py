@@ -9,10 +9,8 @@ def solution(n, left, right):
     
     answer = []
     for i in range(left,right+1):
-        
         div = i // n
         mod = i %  n
-        
         if mod >= div :
             answer.append(mod+1)
         else :
