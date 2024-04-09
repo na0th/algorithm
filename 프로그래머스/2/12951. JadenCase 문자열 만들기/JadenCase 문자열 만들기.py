@@ -3,7 +3,6 @@ def solution(s):
     # s="  HI  HELLO"
     s = s.split(" ")
     s = [item.lower() for item in s]
-    print(s)
     str = ""
     for item in s :
         if item =="":
@@ -19,13 +18,3 @@ def solution(s):
         else :
             a+=item
     return a
-#     for item in s:
-#         if item[0].isalpha():
-#             str = item[0].upper()+item[1:]
-#             list.append(str)
-#             continue
-#         list.append(item)
-        
-#     print(list)
-#     answer = " ".join(list)
-#     return answer
