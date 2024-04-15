@@ -10,11 +10,6 @@ def solution(ingredient):
 
 #   stack 활용?
 
-    # cnt = 0 
-    # for i in range(len(ingredient)-3):
-    #     if ingredient[i:i+3] == [1,3,2,1] :
-    #         cnt+=1
-    # return cnt
         
         
 #    st안에 3개도 없으면 그냥 push 후에 continue .. st < 3
@@ -22,19 +17,12 @@ def solution(ingredient):
     
     i,cnt,st = 0,0,[]
     
-    while(i<len(ingredient)):
-        if len(st) < 3 :
-            st.append(ingredient[i])
-        else :
-            
-            # print(st[-3:]+[ingredient[i]])
-            if (st[-3:]+[ingredient[i]]) == [1,2,3,1] :
-                cnt+=1
-                del st[-3:]
-                i+=1
-                continue
-            else:
-                st.append(ingredient[i])
-        i+=1
+    for i in ingredient:
+        st.append(i)
+        
+        if (st[-4:]) == [1,2,3,1] :
+            del st[-4:]
+            cnt+=1
+
     return cnt
-    # print(st)
+    
