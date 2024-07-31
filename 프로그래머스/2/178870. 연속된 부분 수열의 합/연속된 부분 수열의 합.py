@@ -32,6 +32,4 @@ def solution(sequence, k):
             if end < len(sequence) :
                 cur_sum += sequence[end]
             
-            
-    
     return result
