@@ -11,8 +11,6 @@ def solution(maps):
         visited = set()
         visited.add(start)
         
-        distance = [[-1] * cols for _ in range(rows)]
-        distance[0][0] = 1
         
         while(queue):
             current = queue.popleft()
@@ -20,7 +18,7 @@ def solution(maps):
             
             if x == rows-1 and y == cols-1:
                 # print(distance)
-                return distance[x][y]
+                return maps[x][y]
                 
             for direction in directions:
                 nx, ny = x + direction[0], y + direction[1]
@@ -28,7 +26,7 @@ def solution(maps):
                     if maps[nx][ny] == 1 and (nx, ny) not in visited:
                         visited.add((nx, ny))
                         queue.append((nx, ny))
-                        distance[nx][ny] = distance[x][y] + 1
+                        maps[nx][ny] = maps[x][y] + 1
         return -1
     
     visited_positions = BFS(maps, start)
