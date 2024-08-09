@@ -2,7 +2,7 @@ def solution(n, times):
     import sys
     
     left = 0 
-    right = 100000000000000000000000
+    right = sys.maxsize
     
     while True :
         mid = (left+right) // 2
