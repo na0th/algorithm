@@ -20,15 +20,13 @@ def solution(targets):
     정렬 후 스택
     '''
     
-    targets.sort(key = lambda x:x[1])
-    # print(targets)
-    
-    stack = deque(targets)
+    targets.sort(key = lambda x:x[1],reverse=True)
+    stack = targets
     cnt = 0
     while(stack) :
-        start, end = stack.popleft()
+        start, end = stack.pop()
         
-        while(stack and stack[0][0] < end) :
-            stack.popleft()
+        while(stack and stack[-1][0] < end) :
+            stack.pop()
         cnt += 1
     return cnt
