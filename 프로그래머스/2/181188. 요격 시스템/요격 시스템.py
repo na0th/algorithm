@@ -11,18 +11,15 @@ def solution(targets):
 
     heap = []
     for target in targets:
-        heapq.heappush(heap, (target[0],target[1]))
+        heapq.heappush(heap, (target[1],target[0]))
         
-    # print(heap)
-
     while heap:
-        start, end = heapq.heappop(heap)
+        end,start = heapq.heappop(heap)
         answer += 1
-        min_end = end
+        min_heap = end
         while heap:
-            next_start, next_end = heap[0]
-            min_end = min(min_end, next_end)
-            if next_start < min_end :
+            next_end, next_start = heap[0]
+            if next_start < min_heap :
                 heapq.heappop(heap)
             else:
                 break
