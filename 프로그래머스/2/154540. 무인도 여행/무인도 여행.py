@@ -1,37 +1,34 @@
-import sys
-sys.setrecursionlimit(10000)
+
 def solution(maps):
     from collections import deque
 
-    def dfs(start_x, start_y, graph,cnt):
+    def bfs(x,y):
+        cnt = 0
+        queue = deque()
         
-        if maps[start_x][start_y] == 'X' :
-            return
-        cnt += int(maps[start_x][start_y])
-        visited.add((start_x,start_y))
+        queue.append((x,y))    
+        visited.add((x,y))
+        
+        dx = [1,-1,0,0]
+        dy = [0,0,1,-1]
 
-        dx = [-1, 1, 0, 0]
-        dy = [0, 0, -1, 1]
-
-        for i in range(4):
-            nx = (start_x) + dx[i]
-            ny = (start_y) + dy[i]
-
-            if 0 <= nx < len(graph) and 0 <= ny < len(graph[0]):
-                if (nx, ny) not in visited and maps[nx][ny] != 'X':
-                    visited.add((nx, ny)) 
-                    cnt = dfs(nx,ny,maps,cnt)
-                          
+        while(queue):
+            x, y = queue.popleft()
+            cnt+=int(maps[x][y])
+            
+            for i in range(4):
+                nx = x + dx[i]
+                ny = y + dy[i]
+                if 0 <= nx < len(maps) and 0<= ny < len(maps[0]) :
+                    if (nx,ny) not in visited and maps[nx][ny] != 'X' :
+                        queue.append((nx,ny))
+                        visited.add((nx,ny))
+                        
         return cnt
-    
-    visited = set()
     result = []
-    
+    visited = set()
     for i in range(len(maps)):
-        for j in range(len(maps[0])):
-            if (i, j) not in visited and maps[i][j] != 'X':
-                result.append(dfs(i,j,maps,0))
-    if not result :
-        return [-1]
-    else :
-        return sorted(result)
+        for j in range(len(maps[0])) :
+            if maps[i][j] != 'X' and (i,j) not in visited :
+                result.append(bfs(i,j))
+    return sorted(result) if result else [-1]
