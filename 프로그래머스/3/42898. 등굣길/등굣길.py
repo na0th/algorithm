@@ -9,7 +9,7 @@ def solution(m, n, puddles):
     
     '''
     check = [[0 for i in range(m)] for j in range(n)]
-    print(check)
+    # print(check)
     check[0][0] = 1
     for i in range(n):
         for j in range(m) :
