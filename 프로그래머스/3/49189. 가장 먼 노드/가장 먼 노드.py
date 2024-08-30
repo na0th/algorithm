@@ -23,7 +23,8 @@ def solution(n, edge):
                 if next_node not in visited:
                     visited.add(next_node)
                     queue.append((next_node,cnt+1))
-                    a_list.append(cnt+1)
+                    if max(a_list) <= cnt+1 :
+                        a_list.append(cnt+1)
             max_value = max(a_list)
             
         return a_list.count(max_value)
