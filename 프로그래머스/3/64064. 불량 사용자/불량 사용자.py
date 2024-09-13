@@ -27,7 +27,7 @@ def solution(user_id, banned_id):
             if match(user_id[i],banned_id[j]) == True :
                 dic[banned_id[j]].add(user_id[i])
     print(dic)
-    def backtrack(banned_id, idx, current_set, result):
+    def backtrack(banned_id, idx):
         # 종료 조건
         if idx == len(banned_id):
             result.add(tuple(sorted(current_set)))
@@ -37,9 +37,10 @@ def solution(user_id, banned_id):
             if user not in current_set:
                  # 백트래킹 (넣은 다음 돌려보고 다시 빼기)
                 current_set.add(user)
-                backtrack(banned_id, idx + 1, current_set, result)
+                backtrack(banned_id, idx + 1)
                 current_set.remove(user) 
         
     result = set()
-    backtrack(banned_id, 0, set(), result)
+    current_set = set()
+    backtrack(banned_id, 0)
     return len(result)
