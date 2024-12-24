@@ -39,11 +39,7 @@ def binary_search(left,right,target):
 
     mid = (left + right) // 2
 
-    total = 0
-    for tree in trees:
-        if tree > mid :
-            total+=(tree-mid)
-
+    total = sum(tree - mid for tree in trees if tree > mid)
 
     if total == target :
         return mid
@@ -54,4 +50,4 @@ def binary_search(left,right,target):
     else :
         return binary_search(mid+1,right,target)
 
-print(binary_search(0,2000000000,m))
+print(binary_search(0,max(trees),m))
