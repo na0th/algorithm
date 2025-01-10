@@ -29,10 +29,10 @@ numbers = []
 for _ in range(n):
     numbers.append(input().strip())
 
-back_idx = 1
-while True:
-    suffixes = [num[-back_idx:] for num in numbers]
-    if len(suffixes) == len(set(suffixes)):
-        print(back_idx)
+for length in range(1, len(numbers[0]) + 1):
+    suffix_list = []
+    for number in numbers:
+        suffix_list.append(number[-length:])
+    if len(set(suffix_list)) == n:
+        print(length)
         break
-    back_idx += 1
