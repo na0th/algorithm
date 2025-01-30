@@ -4,15 +4,10 @@ import java.util.stream.*;
 import java.lang.Math;
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
-        List<Integer> proList = Arrays.stream(progresses)
-                .boxed()
-                .collect(Collectors.toList());
-        
         Deque<Integer> deque = new ArrayDeque<>();
         
         for(int i=0; i<progresses.length;i++){
             int task = calculateDays(progresses[i],speeds[i]);
-            System.out.println(task);
             deque.offer(task);
         }
         List<Integer> result = new ArrayList<>();
@@ -35,6 +30,5 @@ class Solution {
             task+=1;
         }
         return task;
-        // return (int) Math.ceil((100.0 - progress) / speed);
     }  
 }
