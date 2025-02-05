@@ -1,10 +1,10 @@
 # [level 2] 배달 - 12978 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12978) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12978?language=java) 
 
 ### 성능 요약
 
-메모리: 10.9 MB, 시간: 4.58 ms
+메모리: 93 MB, 시간: 12.01 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 09월 27일 22:40:13
+2025년 02월 05일 23:48:25
 
 ### 문제 설명
 
