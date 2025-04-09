@@ -17,34 +17,40 @@ class Solution {
         int minDiff = Integer.MAX_VALUE;
         
         for(int i =0; i<wires.length;i++){
-            Map<Integer, List<Integer>> graph = new HashMap<>();
+            List<Integer>[] graph = new ArrayList[n+1];
+            
+            for (int k = 0; k <= n; k++) {
+                graph[k] = new ArrayList<>();
+            }
+            
             Set<Integer> visited = new HashSet<>();
+            
             for(int j=0; j<wires.length; j++){
                 if (j==i) continue;
-                int u = wires[j][0], v = wires[j][1];
-                addEdge(graph,u,v);
+                addEdge(graph, wires[j][0], wires[j][1]);
             }
+            
             dfs(graph, wires[i][0], visited);
+            
             int count = visited.size();      // 한 네트워크의 노드 개수
             int diff = Math.abs(n - 2 * count); // 두 네트워크의 노드 개수 차이 계산
+            
             minDiff = Math.min(minDiff, diff);
         }
         return minDiff;
         
         
     }
-    public void addEdge(Map<Integer, List<Integer>> graph, int u, int v){
-        graph.computeIfAbsent(u,k -> new ArrayList<>()).add(v);
-        graph.computeIfAbsent(v,k -> new ArrayList<>()).add(u);
+    public void addEdge(List<Integer>[] graph, int u, int v){
+        graph[u].add(v);
+        graph[v].add(u);
     }
-    public void dfs(Map<Integer, List<Integer>> graph, int u, Set<Integer> visited){
+    public void dfs(List<Integer>[] graph, int u, Set<Integer> visited){
         visited.add(u);
         
-        if(graph.containsKey(u)){
-            for(int v : graph.get(u)){  
-                if(!visited.contains(v)){
-                    dfs(graph,v,visited);
-                }
+        for(int v : graph[u]){
+            if(!visited.contains(v)){
+                dfs(graph,v,visited);
             }
         }
     }
