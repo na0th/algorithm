@@ -7,6 +7,9 @@ class Solution {
     
     static int leverX = 0;
     static int leverY = 0;
+    
+    static int n,m ;
+    
     /*
     알고리즘 분류 : bfs
     어떻게 풀이? 
@@ -15,47 +18,56 @@ class Solution {
     2) 나간다. 최소 횟수로 bfs
     */
     public int solution(String[] maps) {
-        
+        n = maps.length;
+        m = maps[0].length();
         findPoint(maps);
         
-        if(calLever(maps) ==-1 || calEnd(maps) == -1){
+        int lever = calLever(maps);
+        int end = calEnd(maps);
+        
+        if(lever != -1 && end != -1){
+            return lever+end;
+        }
+        else{
             return -1;
         }
-        return calLever(maps)+calEnd(maps);
-        
-    
     }
     static int calLever(String[] maps){
         int[] dx ={-1,1,0,0};
         int[] dy ={0,0,1,-1};
         
-        Set<List<Integer>> visited = new HashSet<>();
-        visited.add(Arrays.asList(startX,startY));
+        boolean[][] visited = new boolean[n][m];
+        visited[startX][startY] = true;
         
-        Deque<List<Integer>> queue = new ArrayDeque<>();
-        queue.add(Arrays.asList(startX,startY,0));
+        Deque<int[]> queue = new ArrayDeque<>();
+        queue.addFirst(new int[]{startX,startY,0});
         
         while(!queue.isEmpty()){
-            List<Integer> pop = queue.removeFirst();
-            int x = pop.get(0);
-            int y = pop.get(1);
-            int cnt = pop.get(2);
-            
-            if(maps[x].charAt(y)=='L'){
-                return cnt;
-            }
-            for(int i=0; i<dx.length; i++){
-                int nx = x + dx[i];
-                int ny = y + dy[i];
-                
-                if( (0<= nx &&  nx <maps.length ) && (0<=ny && ny<maps[nx].length()) ){
-                    if(!visited.contains(Arrays.asList(nx,ny)) && maps[nx].charAt(ny)!='X'){
-                        visited.add(Arrays.asList(nx,ny));
-                        queue.add(Arrays.asList(nx,ny,cnt+1));
-                    }
-                    
+            int[] cur = queue.removeFirst();
+            int x = cur[0];
+            int y = cur[1];
+            int cnt = cur[2];
+        
+        
+        if (maps[x].charAt(y) == 'L'){
+            leverX = x;
+            leverY = y;
+            return cnt;
+        }
+        
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            if (0 <= nx && nx < n && 0 <= ny && ny < m) {
+                if (!visited[nx][ny] && maps[nx].charAt(ny) != 'X') {
+                    visited[nx][ny] = true;
+                    queue.add(new int[]{nx, ny, cnt + 1});
                 }
-            }    
+            }
+        }
+        
+        
         }
         return -1;
     }
@@ -64,34 +76,33 @@ class Solution {
         int[] dx ={-1,1,0,0};
         int[] dy ={0,0,1,-1};
         
-        Set<List<Integer>> visited = new HashSet<>();
-        visited.add(Arrays.asList(leverX,leverY));
+        boolean[][] visited = new boolean[n][m];
+        visited[leverX][leverY] = true;
         
-        Deque<List<Integer>> queue = new ArrayDeque<>();
-        queue.add(Arrays.asList(leverX,leverY,0));
-        
+        Deque<int[]> queue = new ArrayDeque<>();
+        queue.add(new int[]{leverX, leverY, 0});
         while(!queue.isEmpty()){
-            List<Integer> pop = queue.removeFirst();
-            int x = pop.get(0);
-            int y = pop.get(1);
-            int cnt = pop.get(2);
+            int[] cur = queue.removeFirst();
+            int x = cur[0];
+            int y = cur[1];
+            int cnt = cur[2];
             
             if (maps[x].charAt(y)=='E'){
                 return cnt;
             }
             
-            for(int i=0; i<dx.length; i++){
+            for (int i = 0; i < 4; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
-                
-                if( (0<= nx &&  nx <maps.length ) && (0<=ny && ny<maps[nx].length()) ){
-                    if(!visited.contains(Arrays.asList(nx,ny)) && maps[nx].charAt(ny)!='X'){
-                        visited.add(Arrays.asList(nx,ny));
-                        queue.add(Arrays.asList(nx,ny,cnt+1));
+
+                if (0 <= nx && nx < n && 0 <= ny && ny < m) {
+                    if (!visited[nx][ny] && maps[nx].charAt(ny) != 'X') {
+                        visited[nx][ny] = true;
+                        queue.add(new int[]{nx, ny, cnt + 1});
                     }
-                    
                 }
-            }   
+            }
+           
         }
         return -1;
     }
