@@ -1,6 +1,4 @@
 import java.util.*;
-import java.io.*;
-import java.util.Collections;
 import java.util.stream.Collectors;
 class Solution {
     public int solution(int[] citations) {
@@ -23,18 +21,29 @@ class Solution {
         // List<Integer> arr = new ArrayList<>(Arrays.asList(citations)); 
         //int와 Integer간 타입 불일치로 안됨.. List는 참조형만 가능 원시 X
         
-        List<Integer> arr = Arrays.stream(citations)
-                    .boxed()
-                    .collect(Collectors.toList());
+//         List<Integer> arr = Arrays.stream(citations)
+//                     .boxed()
+//                     .collect(Collectors.toList());
         
-        Collections.sort(arr);
-        for(int i=0; i<arr.size();i++){
+//         Collections.sort(arr);
+//         for(int i=0; i<arr.size();i++){
+//             //0,1,3,5,6
+//             if(arr.get(i) >= arr.size()-i){
+//                 return arr.size()-i;
+//             }
+//         }
+//         int answer = 0;
+//         return answer;
+        
+        Arrays.sort(citations);
+        for(int i=0; i<citations.length;i++){
             //0,1,3,5,6
-            if(arr.get(i) >= arr.size()-i){
-                return arr.size()-i;
+            if(citations[i] >= citations.length-i){
+                return citations.length-i;
             }
         }
-        int answer = 0;
-        return answer;
+        return 0;
+
+
     }
 }
