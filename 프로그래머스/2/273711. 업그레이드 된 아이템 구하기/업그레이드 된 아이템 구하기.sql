@@ -1,0 +1,20 @@
+-- 코드를 작성해주세요
+/*
+부모 아이템, 자식 아이템이 존재
+루트 아이템 = 부모가 없는 아이템
+
+RARITY가 RARE인 아이템들의 다음 업그레이드 아이템의 ID, 아이템 명, 희귀도를 출력
+아이템 ID로 내림차순 정렬
+
+1. ITEM_INFO에서 RARITY가 RARE인 ITEM_ID를 찾는다
+2. ITEM_TREE에서 PARENT_ITEM_ID가 찾아놓은 ITEM_ID인 경우 걔의 ITEM_ID, ITEM_NAME, RARITY 조회
+
+*/
+SELECT T.ITEM_ID, I.ITEM_NAME, I.RARITY
+FROM ITEM_TREE T
+JOIN ITEM_INFO I ON T.ITEM_ID = I.ITEM_ID
+WHERE T.PARENT_ITEM_ID IS NOT NULL AND T.PARENT_ITEM_ID IN (
+    SELECT ITEM_ID 
+    FROM ITEM_INFO
+    WHERE RARITY = 'RARE')
+ORDER BY ITEM_ID DESC
