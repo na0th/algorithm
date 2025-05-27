@@ -6,9 +6,9 @@
 RARITY가 RARE인 아이템들의 다음 업그레이드 아이템의 ID, 아이템 명, 희귀도를 출력
 아이템 ID로 내림차순 정렬
 
-1. ITEM_INFO에서 RARITY가 RARE인 ITEM_ID를 찾는다
+1. ITEM_INFO에서 RARITY가 RARE인 ITEM_ID를 찾는다 + PARENT_ITEM_ID 가 NOT NULL
 2. ITEM_TREE에서 PARENT_ITEM_ID가 찾아놓은 ITEM_ID인 경우 걔의 ITEM_ID, ITEM_NAME, RARITY 조회
-
+-> 조회 하려면 조인 해야 함.
 */
 SELECT T.ITEM_ID, I.ITEM_NAME, I.RARITY
 FROM ITEM_TREE T
