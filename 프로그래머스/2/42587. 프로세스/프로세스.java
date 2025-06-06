@@ -12,19 +12,34 @@ class Solution {
     우선순위에 따라 프로세스 실행하거나, 대기 큐에 넣거나 함
     location에 있는 큐가 실행되면서 카운트를 출력
     */
+    class Process {
+        int index;
+        int priority;
+        
+        Process(int index, int priority){
+            this.index = index;
+            this.priority = priority;
+        }
+    }
     public int solution(int[] priorities, int location) {
-        Deque<int[]> queue = new ArrayDeque<>();
+        Deque<Process> queue = new ArrayDeque<>();
         
         for(int i=0; i<priorities.length; i++){
-            queue.addLast(new int[]{i,priorities[i]});
+            queue.addLast(new Process(i,priorities[i]));
         }
         int count = 0;
         while(!queue.isEmpty()){
-            int[] pop =queue.removeFirst();
-            int idx = pop[0];
-            int priority = pop[1];
+            Process pop =queue.removeFirst();
+            int idx = pop.index;
+            int priority = pop.priority;
             
-            boolean isMax = queue.stream().anyMatch(p -> p[1] > priority);
+            boolean isMax = false;
+            for (Process p : queue) {
+                if (p.priority > pop.priority) {
+                    isMax = true;
+                    break;
+                }
+            }
             if(isMax){
                 queue.addLast(pop);
             }else{
