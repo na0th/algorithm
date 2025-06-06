@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.*;
 class Solution {
     /*
     장르별로 가장 많이 재생된 노래 2개씩 모아서 베스트 앨범
@@ -15,35 +16,46 @@ class Solution {
     그러면.. value들이 정렬이 되어야 하는데..?
     */
     
-    
+    class Song{
+        int index;
+        int plays;
+        Song(int index, int plays) {
+            this.index = index;
+            this.plays = plays;
+        }   
+    }
     public int[] solution(String[] genres, int[] plays) {
         
         Map<String,Integer> genreMap = new HashMap<>();
-        Map<String, List<int[]>> genreToSongs = new HashMap<>();
+        Map<String, List<Song>> genreToSongs = new HashMap<>();
         
         for(int i=0; i<plays.length; i++){
             //있으면 더하고, 없으면 추가하고
-            genreMap.put(genres[i], genreMap.getOrDefault(genres[i], 0) + plays[i]);
-            genreToSongs.computeIfAbsent(genres[i], k -> new ArrayList<>()).add(new int[]{i, plays[i]});  
+            String genre = genres[i];
+            int playCount = plays[i];
+            
+            genreMap.put(genre, genreMap.getOrDefault(genre, 0) + playCount);
+            if (!genreToSongs.containsKey(genre)) {
+                genreToSongs.put(genre, new ArrayList<>());
+            }
+            genreToSongs.get(genre).add(new Song(i, playCount));
+
         }
-        
         List<String> genreOrder = new ArrayList<>(genreMap.keySet());
-        genreOrder.sort((a, b) -> genreMap.get(b) - genreMap.get(a)); //내림차순
-        
+        genreOrder.sort((a, b) -> (genreMap.get(b)).compareTo(genreMap.get(a))); //내림차순
+
         List<Integer> result = new ArrayList<>();
+        
         for(String genre : genreOrder){
-            List<int[]> songs = genreToSongs.get(genre);
+            List<Song> songs = genreToSongs.get(genre);
             songs.sort((a,b) -> {
-                       if (b[1]==a[1]) return a[0]-b[0];
-                        return b[1]-a[1];
+                       if (b.plays==a.plays) return Integer.compare(a.index,b.index);
+                        return Integer.compare(b.plays,a.plays);
                     });
-            result.add(songs.get(0)[0]);
-            if (songs.size() > 1) result.add(songs.get(1)[0]);
+            result.add(songs.get(0).index);
+            if (songs.size() > 1) result.add(songs.get(1).index);
         }
         return result.stream().mapToInt(i -> i).toArray();
-        // System.out.println(genreMap.toString());
-        // System.out.println(genreToSongs.toString());
-        
-        
+       
     }
 }
