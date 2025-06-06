@@ -15,15 +15,6 @@ class Solution {
         
         for(String[] cloth : clothes){
             clothMap.put(cloth[1],clothMap.getOrDefault(cloth[1],0)+1);
-            // if(!clothMap.containsKey(cloth[1])){
-            //     clothMap.put(cloth[1],1);
-            // }
-            // else{
-            //     clothMap.put(cloth[1],clothMap.get(cloth[1])+1);
-            // }
-             
-            
-        
         }
         
         int answer = 1;
