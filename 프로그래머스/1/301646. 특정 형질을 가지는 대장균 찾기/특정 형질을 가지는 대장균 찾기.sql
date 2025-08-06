@@ -7,5 +7,5 @@ GENOTYPE이..
 SELECT COUNT(*) AS COUNT
 FROM ECOLI_DATA
 WHERE    
-  (GENOTYPE & 0b010) = 0       -- 2번 형질 X
-  AND ((GENOTYPE & 0b001) = 0b001 OR (GENOTYPE & 0b100) = 0b100) -- 1번 형질  OR 3번 형질
+  (GENOTYPE & 2) = 0       -- 2번 형질 X
+  AND ((GENOTYPE & 1) = 1 OR (GENOTYPE & 4) = 4) -- 1번 형질  OR 3번 형질
