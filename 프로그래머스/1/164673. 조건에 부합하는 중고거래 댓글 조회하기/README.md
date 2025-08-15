@@ -1,6 +1,6 @@
 # [level 1] 조건에 부합하는 중고거래 댓글 조회하기 - 164673 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/164673) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/164673?language=oracle) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2025년 05월 29일 00:07:41
+2025년 08월 15일 19:16:54
 
 ### 문제 설명
 
