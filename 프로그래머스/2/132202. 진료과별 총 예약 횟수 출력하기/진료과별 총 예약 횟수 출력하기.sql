@@ -1,7 +1,7 @@
 -- 코드를 입력하세요
 SELECT 
     MCDP_CD AS "진료과 코드",
-    COUNT(DISTINCT PT_NO) AS "5월예약건수"
+    COUNT(*) AS "5월예약건수"
 FROM 
     APPOINTMENT
 WHERE 
@@ -10,5 +10,5 @@ WHERE
 GROUP BY 
     MCDP_CD
 ORDER BY 
-    COUNT(DISTINCT PT_NO) ASC,
+    "5월예약건수" ASC,
     MCDP_CD ASC;
