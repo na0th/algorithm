@@ -1,8 +1,3 @@
--- 코드를 입력하세요
-/*
-음식 종류별로 즐겨찾기가 가장 많은..
-*/
-
 SELECT  I.FOOD_TYPE, I.REST_ID, I.REST_NAME, I.FAVORITES
 FROM REST_INFO I
 JOIN (
