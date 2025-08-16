@@ -1,8 +1,3 @@
--- 코드를 입력하세요
-/*
-식품 분류 별로 가격이 제일 비싼 식품
-*/
-
 SELECT P.CATEGORY, MAX_PRICE, P.PRODUCT_NAME
 FROM FOOD_PRODUCT P
 JOIN (
