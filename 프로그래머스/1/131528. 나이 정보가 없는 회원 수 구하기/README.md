@@ -1,6 +1,6 @@
 # [level 1] 나이 정보가 없는 회원 수 구하기 - 131528 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131528) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131528?language=oracle) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2025년 07월 22일 21:30:35
+2025년 08월 17일 14:59:03
 
 ### 문제 설명
 
