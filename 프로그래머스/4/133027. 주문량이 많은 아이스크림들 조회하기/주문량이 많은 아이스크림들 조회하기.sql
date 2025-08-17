@@ -1,7 +1,3 @@
--- 코드를 입력하세요
-/*
-7월 아이스크림의 총 주문량, 상반기의 아이스크림 총 주문량을 더한 값 큰..
-*/
 SELECT H.FLAVOR
 FROM FIRST_HALF H
 JOIN (
@@ -10,4 +6,4 @@ JOIN (
     GROUP BY FLAVOR
      ) S ON H.FLAVOR = S.FLAVOR
 ORDER BY H.TOTAL_ORDER+S.TOT DESC
-LIMIT 3
+FETCH FIRST 3 ROWS ONLY
