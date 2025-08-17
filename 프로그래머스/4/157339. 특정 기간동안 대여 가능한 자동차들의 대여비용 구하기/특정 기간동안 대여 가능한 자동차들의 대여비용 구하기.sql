@@ -1,16 +1,8 @@
--- 코드를 입력하세요
-/*
-'세단' 또는 'SUV' 인 자동차 중
-2022년 11월 1일부터 2022년 11월 30일까지 대여 가능하고 
-30일간의 대여 금액이 50만원 이상 200만원 미만인 자동차 
-
-P하고 조인할 때 대여 기간에 따라 DURATION_TYPE을 정해야 조인이 가능하지않나..
-*/
 WITH CAR_FEE AS (
     SELECT C.CAR_ID,
     C.CAR_TYPE,
     (30 * C.DAILY_FEE) *
-    (100 - TO_NUMBER(REPLACE(P.DISCOUNT_RATE, '%', ''))) / 100 AS FEE
+    (100 - REPLACE(P.DISCOUNT_RATE, '%', '')) / 100 AS FEE
     FROM CAR_RENTAL_COMPANY_CAR C
     LEFT JOIN CAR_RENTAL_COMPANY_DISCOUNT_PLAN P 
         ON C.CAR_TYPE = P.CAR_TYPE  
