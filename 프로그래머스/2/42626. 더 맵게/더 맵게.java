@@ -13,8 +13,6 @@ class Solution {
     예외처리
     모든 음식의 스코빌 지수를 K 이상으로 만들 수 없는 경우에는 -1을 return
     
-    루프문에서 heap.peek이 K 이상일 때, answer를 더하지 않고 즉시 0을 리턴하는가
-    heap의 size가 2보다 작아 루프에서 탈출했을 때, heap.peek이 K 이상인지 확인 후 answer를 return 하는가
     */
     public int solution(int[] scoville, int K) {
         int answer = 0;
