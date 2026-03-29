@@ -15,9 +15,66 @@ class Solution {
     추가 
     deque를 List<Integer> 가 아니고 int[]로 만든다. 
     deque.add(new int[] {} ) <= 이 꼴로 추가하면 됨.
-    */
+    */ 
+    public static class Point{
+        int x,y,cost;
+        Point(int x, int y, int cost){
+            this.x = x;
+            this.y = y;
+            this.cost = cost;
+        }
+    }
     public int solution(int[][] maps) {
         int n = maps.length;
+        int m = maps[0].length;
+        
+        boolean[][] visited = new boolean[n][m];
+        ArrayDeque<Point> queue = new ArrayDeque<>();
+        queue.add(new Point(0,0,1));
+        // visited[0][0]=true;
+        while(!queue.isEmpty()){
+            Point p = queue.removeLast();
+            
+            int x = p.x;
+            int y = p.y;
+            int cost = p.cost;
+            
+            int[] dx = {1,0,0,-1};
+            int[] dy = {0,1,-1,0};
+            
+            // 종료 조건
+            if(x == n-1 && y == m-1){
+                return cost;
+            }
+            for(int i=0; i<4; i++){
+                int nx = x + dx[i];
+                int ny = y + dy[i];
+                // 범위 벗어나지 않게
+                if(nx>=0 && nx < n && ny>=0 && ny < m){
+                    if(!visited[nx][ny] && maps[nx][ny] == 1){
+                        visited[nx][ny] = true;
+                        queue.addFirst(new Point(nx,ny,cost+1));
+                    }
+                }
+                
+            }
+            
+            
+        }
+        return -1;
+    }
+    
+    
+    
+    
+    /*
+    
+    
+    
+    
+    
+    
+    int n = maps.length;
         int m = maps[0].length;
             
         Deque<int[]> deque = new ArrayDeque<>();
@@ -57,5 +114,9 @@ class Solution {
         
         }
         return -1;
-    }
+    
+    
+    
+    
+    */
 }
