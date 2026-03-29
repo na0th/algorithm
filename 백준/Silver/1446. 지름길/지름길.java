@@ -24,41 +24,41 @@ public class Main {
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[0] = 0;
 
-        //그래프 세팅
         for (int i = 0; i < n; i++) {
             String[] row = br.readLine().split(" ");
             int start = Integer.parseInt(row[0]);
             int end = Integer.parseInt(row[1]);
             int cost = Integer.parseInt(row[2]);
-            if (!map.containsKey(start)) {
-                map.put(start, new ArrayList<>());
-            }
-            // 무시 조건
-            if (start > d || cost >= (end - start) || end > d) continue;
+            if (!map.containsKey(start)) map.put(start, new ArrayList<>());
+            if (cost > end - start || end > d) continue;
             map.get(start).add(new Point(end, cost));
         }
-        PriorityQueue<Point> pq = new PriorityQueue<>(Comparator.comparingInt(o -> o.cost));
+
+
+        PriorityQueue<Point> pq = new PriorityQueue<>((o1, o2) -> Integer.compare(o1.cost, o2.cost));
         pq.add(new Point(0, 0));
+
         while (!pq.isEmpty()) {
-            // p는 누적, next는 curCost
             Point p = pq.poll();
+            // dist 값보다 큰 경우는 취급 안한다..
             if (p.cost > dist[p.x]) continue;
+            List<Point> list = map.get(p.x);
             if (map.containsKey(p.x)) {
-                List<Point> list = map.get(p.x);
                 for (Point next : list) {
+                    //지름길 타는 경우 우선순위큐에 넣는다.
                     int newCost = p.cost + next.cost;
-                    if (newCost < dist[next.x]) {
+                    if (dist[next.x] > newCost) {
                         dist[next.x] = newCost;
                         pq.add(new Point(next.x, newCost));
                     }
                 }
             }
-            // p.x+1 <d => d보다는 작아야하고, dist의 다음 칸이 쭉 걸어간 것 보다는 작아야한다? => 중복제거
+
+            // 지름길 도착해도 안타는 경우도 존재, 만약 1칸 이동한 경우의 dist가 cost+1보다 클 경우에만 이동
             if (p.x + 1 <= d && dist[p.x + 1] > p.cost + 1) {
                 dist[p.x + 1] = p.cost + 1;
-                pq.add(new Point(p.x + 1, dist[p.x + 1]));
+                pq.add(new Point(p.x + 1, dist[p.x+1]));
             }
-
         }
         System.out.print(dist[d]);
     }
