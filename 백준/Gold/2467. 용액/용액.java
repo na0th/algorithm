@@ -29,26 +29,20 @@ public class Main {
         int left = 0;
         int right = n-1;
         int[] answer = new int[2];
-        answer[0] = nums.get(0);
-        answer[1] = nums.get(n-1);
+
         int totalNearByZero = Integer.MAX_VALUE;
         while (left < right) {
             int leftNum = nums.get(left);
             int leftRight = nums.get(right);
+            int sum = leftNum + leftRight;
 
-            int absNum1 = Math.abs(totalNearByZero);
-            int absNum2 = Math.abs(leftNum+leftRight);
-            if(absNum1>absNum2){
+            if(Math.abs(totalNearByZero) > Math.abs(leftNum+leftRight)){
+                totalNearByZero = sum;
                 answer[0] = leftNum;
                 answer[1] = leftRight;
-                totalNearByZero = absNum2;
             }
-            if(leftNum + leftRight > 0){right--;}
-            else if (leftNum + leftRight == 0) {
-                break;
-            }
+            if(sum > 0){right--;}
             else {left++;}
-
 
         }
         System.out.print(answer[0] + " " + answer[1]);
