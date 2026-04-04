@@ -38,7 +38,6 @@ public class Main {
             for (int c = 0; c < m; c++) {
                 for (int r = 0; r < n; r++) {
                     if (!visited[r][c] && map[r][c] == 1) {
-                        visited[r][c] = true;
                         dfs(r, c);
                         bugCnt++;
                     }
@@ -51,6 +50,8 @@ public class Main {
 
     }
     static void dfs(int x, int y) {
+        visited[x][y] = true;
+
         int[] dx = {0,1,-1,0};
         int[] dy = {1,0,0,-1};
 
@@ -59,7 +60,6 @@ public class Main {
             int ny = y + dy[i];
             if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
                 if (map[nx][ny] == 1 && !visited[nx][ny]) {
-                    visited[nx][ny] = true;
                     dfs(nx,ny);
                 }
             }
